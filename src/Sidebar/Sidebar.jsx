@@ -8,21 +8,24 @@ export default function Sidebar({
 }) {
   return (
     <div className="sidebar-root">
-      <input
-        type="number"
-        name="frameHeight"
-        placeholder="Set frame height here"
-        className="frame-height-input"
-        value={frameHeightTemp}
-        onChange={(e) => { setFrameHeightTemp(parseInt(e.target.value)) }}
-      />
-      <button
-        onClick={() => {
+      <form
+        action="#"
+        onSubmit={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
           flushFrameHeight();
         }}
       >
-        Set
-      </button>
+        <input
+          type="number"
+          name="frameHeight"
+          placeholder="Set frame height here"
+          className="frame-height-input"
+          value={frameHeightTemp}
+          onChange={(e) => { setFrameHeightTemp(parseInt(e.target.value)) }}
+        />
+        <button type="submit">Set</button>
+      </form>
     </div>
   )
 }

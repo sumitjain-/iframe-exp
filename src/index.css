@@ -6,9 +6,15 @@
     sans-serif;
 }
 
+html {
+  
+}
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100vw;
+  overflow: scroll;
 }
 
 code {
@@ -17,6 +23,7 @@ code {
 }
 
 .App {
+  position: relative;
   width: 100vw;
   height: 100vh;
   background-color: aqua;

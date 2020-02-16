@@ -1,3 +1,8 @@
 .content-container-root {
-  flex: 1 0 75%;
+  flex: 0 0 75%;
+}
+
+.content-container-root iframe {
+  width: 100%;
+  border: none;
 }

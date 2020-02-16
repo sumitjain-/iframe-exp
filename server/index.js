@@ -21,14 +21,20 @@ app.get('/page/:height', (req, res) => {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-    body {
-      height: ${req.params.height}px;
-      background-color: ${bg};
-    }
+      * { margin: 0; padding: 0; }
+      body {
+        height: ${req.params.height}px;
+        background-color: ${bg};
+      }
     </style>
   </head>
   <body>
-    
+    <script>
+      window.addEventListener('DOMContentLoaded', (event) => {
+          console.log('DOM fully loaded and parsed');
+          window.parent.postMessage(\`\${window.getComputedStyle(document.body).height}\`, '*');
+      });
+    </script>
   </body>
   </html>
   `);
