@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Sidebar from './Sidebar/Sidebar';
+import ContentContainer from './ContentContainer/ContentContainer';
 
 function App() {
+  const [frameHeight, setFrameHeight] = useState();
+  const [frameHeightTemp, setFrameHeightTemp] = useState();
+
+  function flushFrameHeight() {
+    setFrameHeight(frameHeightTemp);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Sidebar
+        frameHeightTemp={frameHeightTemp}
+        setFrameHeightTemp={setFrameHeightTemp}
+        flushFrameHeight={flushFrameHeight}
+      />
+      <ContentContainer
+        frameHeight={frameHeight}
+      />
     </div>
   );
 }
